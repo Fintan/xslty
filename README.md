@@ -23,7 +23,7 @@ npm install xslty -g
 ## Usage
 
 ```
-xslty source.xml style.xsl
+xslty source.xml style.xsl [params.json]
 ```
 The order of parameters is important. The source XML has to always go first, followed by the XSLT transformation file. Any result of the transformation will come out to `stdout`, while errors will come out to `stderr`, as expected.
 
