@@ -27,7 +27,16 @@ page.open(url, function(status) {
 
       return Saxon.serializeXML(result);
     }, xml, xslt);
-    console.log(doc)
+
+    var body = page.evaluate(function() {
+        return document.body.innerHTML;
+    });
+
+    var rgx = /(<iframe(?: \w+="[^"]+")* id="Saxonce"(?: \w+="[^"]+")*>([^<]*)<\/iframe>)/g;
+    
+    var body = body.replace(rgx, '');
+    console.log(body);
+
     phantom.exit(0);
   });
 });
